@@ -1,0 +1,14 @@
+.logo {
+  color: white;
+}
+
+.spacer {
+  flex: auto 1 1;
+}
+
+.toolbar {
+  background-color: #ffa500;
+}
+.cart_btn {
+  color: white;
+}
