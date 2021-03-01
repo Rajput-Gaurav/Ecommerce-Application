@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">{{(productCategoriesId)? 'Edit Product Categories' : 'Add Product
+                                Categories'}}
+                            </h4>
+                        </div>
+                        <div class="card-body">
+
+                            <form [formGroup]="productCategoriesForm" novalidate (ngSubmit)="saveproductCategories()">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Name<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="text" placeholder="Enter Product Category Name"
+                                                formControlName="pCategoryName" class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.pCategoryName.errors}">
+                                            <div *ngIf="submitted && frm.pCategoryName.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.pCategoryName.errors.required">product category name is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-gradient-primary mr-2">
+                                    {{(productCategoriesId)? 'Edit' : 'Add '}} Product Categories
+                                </button>
+                                <button class="btn btn-light" routerLink="/categories">Cancel</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

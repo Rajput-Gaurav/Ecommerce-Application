@@ -8,7 +8,8 @@ import { AdminRegisterComponent } from './user-pages/admin-register/admin-regist
 const routes: Routes = [
   { path: '', redirectTo: '/user-pages/admin-login', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'user-pages', loadChildren: () => import('./user-pages/user-pages.module').then(m => m.UserPagesModule) }
+  { path: 'user-pages', loadChildren: () => import('./user-pages/user-pages.module').then(m => m.UserPagesModule) },
+  { path: 'productCategories', loadChildren: () => import('./modules/product-categories/product-categories.module').then(m => m.ProductCategoriesModule) }
 ];
 
 @NgModule({

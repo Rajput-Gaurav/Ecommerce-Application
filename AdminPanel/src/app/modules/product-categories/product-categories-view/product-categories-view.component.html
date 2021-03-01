@@ -1,0 +1,39 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title pull-left">Product Categories</h4>
+                        <a class="btn btn-primary float-right" routerLink="/productCategories/addProductCategories">
+                            Add Product Categories</a>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Categories</td>
+                                    <td>Action</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let pcategory of productCategories; let i = index">
+                                    <td *ngIf="productCategories[i]._id == pcategory._id">{{i + 1}}</td>
+                                    <td>{{pcategory.pCategoryName}}</td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-gradient-success btn-fw"
+                                            [routerLink]="['/productCategories/editProductCategories', pcategory._id]">Edit</button>
+                                        <button type="button" class="btn btn-gradient-danger btn-fw"
+                                            (click)="deleteProductCategories(pcategory)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

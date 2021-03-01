@@ -12,7 +12,12 @@ export const environment = {
   GET_ADMIN_USER_BY_ID: '/Users/getUserById/',
   UPDATE_ADMIN_USER_BY_ID: '/Users/updateUserById/',
   DELETE_ADMIN_USER_BY_ID: '/Users/deleteUserById/',
-
+  // Product Categories:
+  CREATE_PRODUCT_CATEGORIES: '/productCategories/create',
+  GET_All_PRODUCT_CATEGORIES: '/productCategories/getProductCategories',
+  GET_PRODUCT_CATEGORIES_BY_ID: '/productCategories/getProductCategoriesById/',
+  UPDATE_PRODUCT_CATEGORIES_BY_ID: '/productCategories/updateProductCategories/',
+  DELETE_PRODUCT_CATEGORIES_BY_ID: '/productCategories/deleteProductCategories/',
 };
 
 export const BASE_URL = "http://localhost:5000";

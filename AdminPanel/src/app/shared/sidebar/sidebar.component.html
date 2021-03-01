@@ -8,5 +8,12 @@
       </a>
     </li>
 
+    <li class="nav-item" [ngClass]="{ 'active': productCategories.isActive }">
+      <a class="nav-link" routerLink="/productCategories" routerLinkActive #productCategories="routerLinkActive">
+        <span class="menu-title">Product Categories</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+
   </ul>
 </nav>
