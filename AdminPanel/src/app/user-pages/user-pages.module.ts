@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { Routes, RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminRegisterComponent } from './admin-register/admin-register.component';
 
-const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-]
+import { UserPagesRouting } from './user-pages.routing';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [AdminLoginComponent, AdminRegisterComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    FormsModule,
+    ReactiveFormsModule,
+    UserPagesRouting
   ]
 })
 export class UserPagesModule { }

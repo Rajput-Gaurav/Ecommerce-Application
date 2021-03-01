@@ -3,8 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // Admin Login:
+  ADMIN_LOGIN: '/Users/adminLogin',
+  // Admin Users:
+  CREATE_ADMIN_USER: '/Users/create',
+  GET_ADMIN_USER: '/Users/getUsers',
+  GET_ADMIN_USER_BY_ID: '/Users/getUserById/',
+  UPDATE_ADMIN_USER_BY_ID: '/Users/updateUserById/',
+  DELETE_ADMIN_USER_BY_ID: '/Users/deleteUserById/',
+
 };
+
+export const BASE_URL = "http://localhost:5000";
 
 /*
  * For easier debugging in development mode, you can import the following file

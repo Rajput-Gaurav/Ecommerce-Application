@@ -1,7 +1,7 @@
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
     <a class="navbar-brand brand-logo" routerLink="/">EasyM@rt</a>
-    <!-- <a class="navbar-brand brand-logo-mini" routerLink="/"></a> -->
+
   </div>
 
   <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -13,20 +13,25 @@
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-profile dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="profileDropdown" ngbDropdownToggle>
-          <div class="nav-profile-text">
-            <p class="mb-1 text-black">David Greymaax</p>
+          <!-- LOGIN ADMIN NAME: -->
+          <div class="nav-profile-text" *ngIf="data">
+            <p class="mb-1 text-black">{{this.data.firstName | titlecase}}</p>
           </div>
         </a>
+
+        <!-- PROFILE PAGE LINK: -->
         <div class="dropdown-menu navbar-dropdown" ngbDropdownMenu aria-labelledby="profileDropdown">
           <a class="dropdown-item" href="javascript:;">
             <i class="mdi mdi-cached mr-2 text-success"></i>
-            Activity Log
+            Profile
           </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="javascript:;">
+
+          <!-- USER LOGOUT LINK: -->
+          <button class="dropdown-item" href="javascript:;" (click)="logout()">
             <i class="mdi mdi-logout mr-2 text-primary"></i>
             Signout
-          </a>
+          </button>
         </div>
       </li>
     </ul>
