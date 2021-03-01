@@ -1,0 +1,71 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Admin Profile</h4>
+                        </div>
+                        <div class="card-body">
+
+                            <form>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>FirstName</label>
+                                            <input type="text" class="form-control" [(ngModel)]="this.data.firstName"
+                                                name="firstName"
+                                                [ngClass]="{'is-invalid': submitted && frm.firstName.errors}" />
+                                            <div *ngIf="submitted && frm.firstName.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.firstName.errors.required">firstname is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>LastName</label>
+                                            <input type="text" class="form-control" [(ngModel)]="this.data.lastName"
+                                                name="lastName"
+                                                [ngClass]="{'is-invalid': submitted && frm.lastname.errors}" />
+                                            <div *ngIf="submitted && frm.lastname.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.lastname.errors.required">lastname is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" [(ngModel)]="this.data.email"
+                                                [ngModelOptions]="{standalone: true}" disabled
+                                                [ngClass]="{'is-invalid': submitted && frm.email.errors}" />
+                                            <div *ngIf="submitted && frm.email.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.email.errors.required">email is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-gradient-primary mr-2">
+                                            Update
+                                        </button>
+                                        <button class="btn btn-light" routerLink="/dashboard">Cancel</button>
+                                    </div>
+                                </div> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
