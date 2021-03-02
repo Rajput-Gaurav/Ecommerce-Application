@@ -7,6 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule, ThemeService } from 'ng2-charts';
 
+import { AuthGuard } from './routesGuard/auth.guard';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -36,7 +38,7 @@ import { ContentAnimateDirective } from './shared/directives/content-animate.dir
     ChartsModule,
     HttpClientModule
   ],
-  providers: [ThemeService],
+  providers: [ThemeService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
