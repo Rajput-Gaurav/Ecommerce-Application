@@ -1,0 +1,151 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">{{(productsId)? 'Edit Products' : 'Add Products'}}
+                            </h4>
+                        </div>
+                        <div class="card-body">
+
+                            <form [formGroup]="productsForm" novalidate (ngSubmit)="saveProducts()">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Image</label>
+                                            <input type="file" class="form-control file-upload-info"
+                                                (change)="selectImage($event)" />
+                                            <div class="input-group col-xs-12"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Name<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="text" placeholder="Enter Product Name"
+                                                formControlName="productName" class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.productName.errors}">
+                                            <div *ngIf="submitted && frm.productName.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.productName.errors.required">product name is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Categories<span class="text-danger">&nbsp;*</span></label>
+                                            <select formControlName="productCategory" class="form-control"
+                                                [ngClass]="{ 'is-invalid': submitted && frm.productCategory.errors }">
+                                                <option value="" disabled selected hidden>Select Product Category
+                                                </option>
+                                                <option *ngFor="let category of allProductCategory;">
+                                                    {{category.pCategoryName}}
+                                                </option>
+                                                <option value="Don’t Know">Don’t Know</option>
+                                            </select>
+                                            <div *ngIf="submitted && frm.productCategory.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.productCategory.errors.required">Product category is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Rating<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="number" placeholder="Enter Product Rating"
+                                                formControlName="productRating" class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.productRating.errors}">
+                                            <div *ngIf="submitted && frm.productRating.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.productRating.errors.required">product rating is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product MRP<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="number" placeholder="Enter Product MRP" formControlName="mrp"
+                                                class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.mrp.errors}"
+                                                (change)="calculateBasicRate()">
+                                            <div *ngIf="submitted && frm.mrp.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.mrp.errors.required">product mrp is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Status<span class="text-danger">&nbsp;*</span></label>
+                                            <select formControlName="status" class="form-control"
+                                                [ngClass]="{ 'is-invalid': submitted && frm.status.errors }">
+                                                <option value="" disabled selected hidden>Select Product Status</option>
+                                                <option value="Available">Available </option>
+                                                <option value="Not Available">Not Available</option>
+                                            </select>
+                                            <div *ngIf="submitted && frm.status.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.status.errors.required">Status is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Quantity<span class="text-danger">&nbsp;</span></label>
+                                            <input type="number" class="form-control" formControlName="quantity"
+                                                [ngClass]="{'is-invalid': submitted && frm.quantity.errors}"
+                                                (change)="calculateBasicRate()">
+                                            <div *ngIf="submitted && frm.quantity.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.quantity.errors.required">Product quantity is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Total Amount<span class="text-danger">&nbsp;</span></label>
+                                            <input type="number" class="form-control" formControlName="totalamount"
+                                                [value]="totalamount" readonly
+                                                [ngClass]="{'is-invalid': submitted && frm.totalamount.errors}">
+                                            <div *ngIf="submitted && frm.totalamount.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.totalamount.errors.required">Total amount is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-gradient-primary mr-2">
+                                    {{(productsId)? 'Edit' : 'Add '}} Products
+                                </button>
+                                <button class="btn btn-light" routerLink="/products">Cancel</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

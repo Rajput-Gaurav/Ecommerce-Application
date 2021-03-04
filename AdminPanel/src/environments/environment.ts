@@ -18,6 +18,14 @@ export const environment = {
   GET_PRODUCT_CATEGORIES_BY_ID: '/productCategories/getProductCategoriesById/',
   UPDATE_PRODUCT_CATEGORIES_BY_ID: '/productCategories/updateProductCategories/',
   DELETE_PRODUCT_CATEGORIES_BY_ID: '/productCategories/deleteProductCategories/',
+  // Product Details:
+  CREATE_PRODUCTS: '/products/create',
+  GET_All_PRODUCTS: '/products/getAllProduct',
+  GET_PRODUCTS_BY_ID: '/products/getProductById/',
+  GET_PRODUCTS_BY_FILTER: '/products/findFilterProduct',
+  UPDATE_PRODUCTS_STATUS_BY_ID: '/products/updateProductStatus/',
+  UPDATE_PRODUCTS_BY_ID: '/products/updateProductById/',
+  DELETE_PRODUCTS_BY_ID: '/products/deleteProductById/'
 };
 
 export const BASE_URL = "http://localhost:5000";

@@ -1,13 +1,16 @@
-const productDetails = require('../Controllers/productDetailsController');
 const express = require('express');
+// import middleware:
+const Storage = require('../middleware/fileUpload');
+const products = require('../Controllers/productDetailsController');
+
 const router = express.Router();
 
-router.post('/create', productDetails.create);
-router.get('/getAllProduct', productDetails.findAll);
-router.get('/getProductById/:Id', productDetails.findById);
-router.post('/findFilterProduct', productDetails.getFilterProduct);
-router.post('/updateProductStatus/:Id', productDetails.updateProductStatus);
-router.post('/updateProductById/:Id', productDetails.update);
-router.post('/deleteProductById/:Id', productDetails.delete);
+router.post('/create', Storage, products.create);
+router.get('/getAllProduct', products.findAll);
+router.get('/getProductById/:Id', products.findById);
+router.post('/findFilterProduct', products.getFilterProduct);
+router.post('/updateProductStatus/:Id', products.updateProductStatus);
+router.post('/updateProductById/:Id', products.update);
+router.post('/deleteProductById/:Id', products.delete);
 
 module.exports = router;

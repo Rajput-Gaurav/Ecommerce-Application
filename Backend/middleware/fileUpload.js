@@ -1,18 +1,24 @@
 const multer = require('multer');
-const path = require('path');
 
-const Storage = multer.diskStorage({
-    // destination where files store:
-    destination: function(req, file, cb) {
-        cb(null, './public/uploads');
-    },
-    // filename for upload files:
-    filename: function(req, file, cb) {
-        const ext = path.extname(file.originalname);    //set the extension of file:
-        cb(null, file.fieldname + '-' + Date.now() + ext);
-    }
+const diskStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/images');
+  },
+  filename: (req, file, cb) => {
+    const mimeType = file.mimetype.split('/');
+    const fileType = mimeType[1];
+    const fileName = file.originalname + '.' + fileType;
+    cb(null, fileName);
+  },
 });
 
-const upload = multer({ storage: Storage});
+const fileFilter = (req, file, cb) => {
+  const allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+  allowedMimeTypes.includes(file.mimetype) ? cb(null, true) : cb(null, false);
+};
 
-module.exports = upload;
+const Storage = multer({ storage: diskStorage, fileFilter: fileFilter }).single(
+  'image'
+);
+
+module.exports = Storage;

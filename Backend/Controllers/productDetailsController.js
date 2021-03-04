@@ -1,44 +1,33 @@
-const ProductDetails = require('../Models/productDetails');
+const Products = require('../Models/productDetails');
 
 // Create or Insert:
 exports.create = (req, res) => {
+    console.log(req.file);
 
-    const Product = {
+    const products = {
+        imagePath: "http://localhost:5000/public/images/" + req.file.filename,
         productName: req.body.productName,
-        productType: req.body.productType,
         productCategory: req.body.productCategory,
-        productImage: req.body.productImage,
-        productColor: req.body.productColor,
-        productSize: req.body.productSize,
         productRating: req.body.productRating,
-        pincode: req.body.pincode,
-        netPurchaseRate: req.body.netPurchaseRate,
-        basicPurchaseRate: req.body.basicPurchaseRate,
-        gst: req.body.gst,
         mrp: req.body.mrp,
-        salesRate: req.body.salesRate,
-        saleAmount: req.body.saleAmount,
-        basicSaleRate: req.body.basicSaleRate,
-        manufacturingDate: req.body.manufacturingDate,
-        distributer: req.body.distributer,
-        stock: req.body.stock,
-        cgst: req.body.cgst,
-        sgst: req.body.sgst,
         status: req.body.status,
+        quantity: req.body.quantity,
+        totalamount: req.body.totalamount,
         isDeleted: false
     };
+    console.log("Products: ", products);
 
-    ProductDetails.create(Product, function(err, result){
-        if (err) {
-            res.json({ status: "Fail", message: "Fail to create new product!", err: err});
-        }
-            res.json({ status: "Success", message: "Product added successfully!!!", data: result});
-    })
-};
+        Products.create(products, function(err, result) {
+            if(err)
+                res.send({ status: "fail", message: "Fail to add Course!", err:err});
+            else
+                res.send({ status: "success", message: "Course added successfully!", data: result});            
+        });
+}
 
 // Get Product:
 exports.findAll = (req, res) => {
-    ProductDetails.find( {isDeleted: false})
+    Products.find( {isDeleted: false})
         .then(product => {
             if(!product) {
                 res.json({ status: "Fail", message: "Failed to find product!"});
@@ -58,7 +47,7 @@ exports.findById = (req, res) => {
             status: "Fail", message: "Product id not found!" + req.params.Id
         });
     }
-    ProductDetails.findById(req.params.Id)
+    Products.findById(req.params.Id)
         .then(product => {
             if(!product) {
                 res.json({
@@ -79,6 +68,7 @@ exports.findById = (req, res) => {
         })
 };
 
+// Get Product & Show them through STATUS FILTER:
 // Get Product By Filter:
 exports.getFilterProduct = (req, res) => {
     var query = {};
@@ -89,12 +79,12 @@ exports.getFilterProduct = (req, res) => {
         }
     }
     console.log("query", query);
-        ProductDetails.find(query)
+        Products.find(query)
             .then(product => {
                 if(!product || product <= 0)
                     res.json({ status: "Fail", message: "Fail to get Product!"});
                 else if(req.body.apiForm == 'Admin') {
-                    res.json({ status: "Success", message: "Product found successfully!!!", data: product});
+                    res.json({ status: "success", message: "Product found successfully!!!", data: product});
                 } else {
                     res.json({ status: "Fail", message: "Here no any data related to this status!"});
                 }                    
@@ -113,7 +103,7 @@ exports.updateProductStatus = (req, res) => {
             message: "Product not found with id!" + req.params.Id
         });
     } else {
-        ProductDetails.findByIdAndUpdate(req.params.Id, { $set: { status: req.body.status}}, { new: false}, function(err, result){
+        Products.findByIdAndUpdate(req.params.Id, { $set: { status: req.body.status}}, { new: false}, function(err, result){
             if (err) {
                 res.json({ status: "error", message: "Status not update!", err: err});
             }
@@ -131,7 +121,7 @@ exports.update = (req, res) => {
         });
     }
 
-    ProductDetails.findByIdAndUpdate(req.params.Id, { $set: req.body}, {new: false}, function(err, result){
+    Products.findByIdAndUpdate(req.params.Id, { $set: req.body}, {new: false}, function(err, result){
         if (err) {
             res.json({ status: "error", message: "Product not updated!", err: err});
         }
@@ -148,7 +138,7 @@ exports.delete = (req, res) => {
         });
     }
 
-    ProductDetails.findByIdAndUpdate(req.params.Id, { new: false}, function(err, result){
+    Products.findByIdAndDelete(req.params.Id, { new: false}, function(err, result){
         if(err) {
             res.json({
                 status: "Fail",

@@ -1,6 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
 
+    <!-- DASHBOARD: -->
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
       <a class="nav-link" routerLink="/dashboard" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">Dashboard</span>
@@ -8,6 +9,15 @@
       </a>
     </li>
 
+    <!-- PRODUCTS: -->
+    <li class="nav-item" [ngClass]="{ 'active': products.isActive }">
+      <a class="nav-link" routerLink="/products" routerLinkActive #products="routerLinkActive">
+        <span class="menu-title">Products</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+
+    <!-- PRODUCT CATEGORIES: -->
     <li class="nav-item" [ngClass]="{ 'active': productCategories.isActive }">
       <a class="nav-link" routerLink="/productCategories" routerLinkActive #productCategories="routerLinkActive">
         <span class="menu-title">Product Categories</span>

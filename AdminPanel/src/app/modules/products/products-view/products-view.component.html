@@ -1,0 +1,70 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title pull-left">Products</h4>
+                        <a class="btn btn-primary float-right" routerLink="/products/addProducts">
+                            Add Products</a>
+                    </div>
+                    <!-- Show By Status: -->
+                    <div class="row">
+                        <div class="col-md-2">
+                            <select #filter class='custom-select select-status'
+                                (change)='onOptionsSelected(filter.value)'>
+                                <option value="Available">Available </option>
+                                <option value="Not Available">Not Available</option>
+                                <option value="All">All</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Product Image</td>
+                                    <td>Product Name</td>
+                                    <td>Product Category</td>
+                                    <td>Product Rating</td>
+                                    <td>Product MRP</td>
+                                    <td>Product Status</td>
+                                    <td>Product Quantity</td>
+                                    <td>Total Amount</td>
+                                    <td>Action</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let products of allProducts; let i = index">
+                                    <td *ngIf="allProducts[i]._id == products._id">{{i + 1}}</td>
+                                    <td><img [src]="products.imagePath" [alt]="products.productName"
+                                            class="rounded-circle img"></td>
+                                    <td>{{products.productName}}</td>
+                                    <td>{{products.productCategory}}</td>
+                                    <td>
+                                        <ngb-rating [(rate)]="products.productRating" [readonly]="true" [max]="5"
+                                            class="rating">
+                                        </ngb-rating>
+                                    </td>
+
+                                    <td>{{products.mrp}}</td>
+                                    <td><span class="badge badge-info">{{products.status}}</span></td>
+                                    <td>{{products.quantity}}</td>
+                                    <td>{{products.totalamount}}</td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-block btn-gradient-success"
+                                            [routerLink]="['/products/editProducts', products._id]">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-block btn-gradient-danger"
+                                            (click)="deleteProducts(products)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
