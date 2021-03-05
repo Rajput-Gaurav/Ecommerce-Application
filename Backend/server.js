@@ -15,7 +15,8 @@ const productCategories = require('./Routers/productCategories.router');
 const Products = require('./Routers/productDetails-router');
 const StudentCourse = require('./Routers/studentCourse-router');
 const AvailableCourse = require('./Routers/availableCourse-router');
-const Users = require('./Routers/user-router');
+const Admin = require('./Routers/admin-router');
+const User = require('./Routers/users-router');
 
 // Create an Express App:
 const app = express();
@@ -33,10 +34,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Static Path for access images:
-app.use('/public/images', express.static(path.join('public/images')));
+app.use('/public/products', express.static(path.join('public/products')));
+app.use('/public/users', express.static(path.join('public/users')));
 
 //mount the router:
-app.use('/Users', Users);
+app.use('/adminLogin', Admin);
+app.use('/userLogin', User);
 app.use('/categories', Categories);
 app.use('/productCategories', productCategories);
 app.use('/products', Products);

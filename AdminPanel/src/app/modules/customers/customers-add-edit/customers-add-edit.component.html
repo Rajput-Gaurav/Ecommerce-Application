@@ -1,0 +1,129 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">{{(customerId)? 'Edit Customers' : 'Add Customers'}}
+                            </h4>
+                        </div>
+                        <div class="card-body">
+
+                            <form [formGroup]="customersForm" novalidate (ngSubmit)="saveCustomers()">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Profile</label>
+                                            <input type="file" class="form-control file-upload-info"
+                                                (change)="selectImage($event)" name="image" />
+                                            <div class="input-group col-xs-12"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>First Name<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="text" placeholder="Enter First Name"
+                                                formControlName="firstName" class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.firstName.errors}">
+                                            <div *ngIf="submitted && frm.firstName.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.firstName.errors.required">first name name is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Last Name<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="text" placeholder="Enter Last Name" formControlName="lastName"
+                                                class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.lastName.errors}">
+                                            <div *ngIf="submitted && frm.lastName.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.lastName.errors.required">last name name is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="email" placeholder="Enter Email" formControlName="email"
+                                                class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.email.errors}">
+                                            <div *ngIf="submitted && frm.email.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.email.errors.required">email is required </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Mobile Number<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="number" placeholder="Enter Mobile Number"
+                                                formControlName="mobileNo" class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.mobileNo.errors}">
+                                            <div *ngIf="submitted && frm.mobileNo.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.mobileNo.errors.required">mobile number is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Address<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="text" placeholder="Enter Address" formControlName="address"
+                                                class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.address.errors}">
+                                            <div *ngIf="submitted && frm.address.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.address.errors.required">address is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Zip Code<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="number" placeholder="Enter Zip Code" formControlName="zipCode"
+                                                class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.zipCode.errors}">
+                                            <div *ngIf="submitted && frm.zipCode.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.zipCode.errors.required">zip code is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-gradient-primary mr-2">
+                                    {{(customerId)? 'Edit' : 'Add '}} Customers
+                                </button>
+                                <button class="btn btn-light" routerLink="/customers">Cancel</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,25 +1,6 @@
 const Admins = require('../Models/adminCreds');
 const commonService = require('../middleware/commonService');
 
-// Create User:
-// exports.create = (req, res) => {
-//     const userObj = {
-//         firstName: req.body.firstName,
-//         lastName: req.body.lastName,
-//         email: req.body.email,
-//         password: req.body.password,
-//         isDeleted: false
-//     };
-
-//     Admins.create(userObj, function (err, result) {
-//         if(err)
-//             res.json({ status: "fail", message: "Fail to create new User!", err: err});
-//         else
-//             res.json({ status: "success", message: "User added Successfully!", data: result});            
-//     });
-
-// }
-
 exports.create = (req, res) => {
     const { firstName, lastName, email, userType, password} = req.body;
 
@@ -36,7 +17,7 @@ exports.create = (req, res) => {
     }).catch()
 };
 
-    // Update User:
+    // Update Admin:
     exports.update = (req, res) => {
         if (!req.params.Id) {
             return res.send({
@@ -109,35 +90,7 @@ exports.create = (req, res) => {
 
     // Login User with email and password:
     exports.adminLogin = (req, res) => {
-        // if (commonService.isUndefinedOrNull(req.body.email)) {
-        //     return res.json({ status: "fail", message: "Email address is required!"});
-        // }   else if (commonService.isUndefinedOrNull(req.body.password)) {
-        //     return res.json({ status: "fail", message: "Password is required!"});
-        // }   else {
-        //     Admins.findOne({ email: req.body.email, password: req.body.password})
-        //         .then(admin => {
-        //             if(admin) {
-        //                 if(admin.isValidPassword(password)) {
-        //                     res.json(admin.genUserObj())
-        //                 } else {
-        //                     res.status(401).json({
-        //                         msg: 'Invalid Credentials.'
-        //                     })
-        //                 }
-        //             } else {
-        //                 res.status(400).json({
-        //                     msg: 'User not found'
-        //                 })
-        //             }
-        //         })
-        //          .catch(err => {
-        //             console.log('err', err);
-        //             return res.send({
-        //                 status: "fail",
-        //                 message: err.message || "Some error occurred while retriving user."
-        //             });
-        //         });
-        // }
+
         const  { email, password } = req.body;
 
         Admins.findOne({ email })

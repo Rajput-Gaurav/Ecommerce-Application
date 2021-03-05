@@ -1,4 +1,5 @@
 const adminModel = require('../Models/adminCreds');
+const userModel = require('../Models/usersCreds');
 
 function authentication(req, res, next) {
 
@@ -12,7 +13,7 @@ function authentication(req, res, next) {
         token = req.headers['authorization'].split(' ')[1]
     }
 
-    if(adminModel.isValidToken(token)) {
+    if(adminModel || userModel.isValidToken(token)) {
         next()
     } else {
         res.status(401).json({
@@ -20,6 +21,5 @@ function authentication(req, res, next) {
         })
     }
 };
-
 
 module.exports = authentication;

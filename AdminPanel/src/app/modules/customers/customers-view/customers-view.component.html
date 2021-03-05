@@ -1,0 +1,52 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title pull-left">Customers</h4>
+                        <a class="btn btn-primary float-right" routerLink="/customers/addCustomers">
+                            Add Customer</a>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Profile</td>
+                                    <td>First Name</td>
+                                    <td>Last Name</td>
+                                    <td>Email</td>
+                                    <td>Mobile No</td>
+                                    <td>Address</td>
+                                    <td>Zip Code</td>
+                                    <td>Action</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let customer of customers; let i = index">
+                                    <td *ngIf="customers[i]._id == customer._id">{{i + 1}}</td>
+                                    <td><img [src]="customer.imagePath" [alt]="customer.firstName"
+                                            class="rounded-circle img"></td>
+                                    <td>{{customer.firstName}}</td>
+                                    <td>{{customer.lastName}}</td>
+                                    <td>{{customer.email}}</td>
+                                    <td>{{customer.mobileNo}}</td>
+                                    <td>{{customer.address}}</td>
+                                    <td>{{customer.zipCode}}</td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-block btn-gradient-success btn-fw"
+                                            [routerLink]="['/customers/editCustomers', customer._id]">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-block btn-gradient-danger btn-fw"
+                                            (click)="deleteCustomers(customer)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

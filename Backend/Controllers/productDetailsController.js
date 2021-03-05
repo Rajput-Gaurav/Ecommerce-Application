@@ -5,7 +5,7 @@ exports.create = (req, res) => {
     console.log(req.file);
 
     const products = {
-        imagePath: "http://localhost:5000/public/images/" + req.file.filename,
+        imagePath: "http://localhost:5000/public/products/" + req.file.filename,
         productName: req.body.productName,
         productCategory: req.body.productCategory,
         productRating: req.body.productRating,

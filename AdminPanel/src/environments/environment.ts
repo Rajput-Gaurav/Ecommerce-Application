@@ -5,13 +5,19 @@
 export const environment = {
   production: false,
   // Admin Login:
-  ADMIN_LOGIN: '/Users/adminLogin',
-  // Admin Users:
-  CREATE_ADMIN_USER: '/Users/create',
-  GET_ADMIN_USER: '/Users/getUsers',
-  GET_ADMIN_USER_BY_ID: '/Users/getUserById/',
-  UPDATE_ADMIN_USER_BY_ID: '/Users/updateUserById/',
-  DELETE_ADMIN_USER_BY_ID: '/Users/deleteUserById/',
+  ADMIN_LOGIN: '/adminLogin/adminLogin',
+  // Admin adminLogin:
+  CREATE_ADMIN_USER: '/adminLogin/create',
+  GET_ADMIN_USER: '/adminLogin/getadminLogin',
+  GET_ADMIN_USER_BY_ID: '/adminLogin/getUserById/',
+  UPDATE_ADMIN_USER_BY_ID: '/adminLogin/updateUserById/',
+  DELETE_ADMIN_USER_BY_ID: '/adminLogin/deleteUserById/',
+  // User userLogin:
+  CREATE_USER: '/userLogin/create',
+  GET_USER: '/userLogin/getUsers',
+  GET_USER_BY_ID: '/userLogin/getUsersById/',
+  UPDATE_USER_BY_ID: '/userLogin/updateUserById/',
+  DELETE_USER_BY_ID: '/userLogin/deleteUserById/',
   // Product Categories:
   CREATE_PRODUCT_CATEGORIES: '/productCategories/create',
   GET_All_PRODUCT_CATEGORIES: '/productCategories/getProductCategories',

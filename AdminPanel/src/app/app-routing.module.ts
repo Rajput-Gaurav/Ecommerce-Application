@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'user-pages', loadChildren: () => import('./user-pages/user-pages.module').then(m => m.UserPagesModule) },
   { path: 'productCategories', loadChildren: () => import('./modules/product-categories/product-categories.module').then(m => m.ProductCategoriesModule), canActivate: [AuthGuard] },
-  { path: 'products', loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule), canActivate: [AuthGuard] }
+  { path: 'products', loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule), canActivate: [AuthGuard] },
+  { path: 'customers', loadChildren: () => import('./modules/customers/customers.module').then(m => m.CustomersModule), canActivate: [AuthGuard] }
 ];
 
 @NgModule({
