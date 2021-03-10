@@ -1,0 +1,28 @@
+<div class="container-scroller">
+
+    <div class="card-header text-center">
+        Grocery
+    </div>
+
+    <div class="card" style="max-width: auto;">
+        <div class="card-body row g-0">
+            <div class="col-md-5">
+                <img src="assets/images/samples/small/13.jpg" alt="product-name" class="img">
+                <div class="button col-md-12">
+                    <button mat-raised-button [routerLink]="['/cart']" style="width: 40%; background-color: yellow;">ADD
+                        TO CART</button>&nbsp;
+                    <button mat-raised-button style="width: 40%; background-color: #ffa500;">BUY NOW</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <span>Price: {{1000 | currency: 'INR'}}</span><br />
+                    <span>Rating: 4 star</span><br />
+                    <span>Product Description.</span><br />
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

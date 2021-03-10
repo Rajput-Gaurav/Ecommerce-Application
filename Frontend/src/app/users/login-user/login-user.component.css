@@ -1,4 +1,10 @@
-.container {
+.main-content {
+  padding: 20px;
+  margin-left: 300px;
+}
+
+.card-body {
+  margin-left: 250px;
 }
 
 .register {

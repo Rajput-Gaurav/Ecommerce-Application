@@ -33,5 +33,13 @@
       </a>
     </li>
 
+    <!-- CUSTOMERS: -->
+    <li class="nav-item" [ngClass]="{ 'active': customersOrders.isActive }">
+      <a class="nav-link" routerLink="/customersOrders" routerLinkActive #customersOrders="routerLinkActive">
+        <span class="menu-title">Customers Orders</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+
   </ul>
 </nav>

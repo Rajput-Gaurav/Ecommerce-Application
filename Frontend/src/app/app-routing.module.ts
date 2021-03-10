@@ -10,8 +10,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
   { path: 'home', component: HomeComponent },
-  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
-  { path: 'not-user', component: ErrorPageComponent }
+  { path: 'cart', component: CartComponent },
+  { path: 'not-user', component: ErrorPageComponent },
+
+  { path: '', loadChildren: () => import('./components/grocery/grocery.module').then(m => m.GroceryModule) }
+  // { path: '', loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule) }
 ];
 
 @NgModule({

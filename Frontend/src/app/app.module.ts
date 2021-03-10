@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,12 +19,16 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { SliderComponent } from './shared/slider/slider.component';
 
 import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 
 import { AuthGuard } from './provider/auth.guard';
-import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { HomeProductComponent } from './components/home/home-product/home-product.component';
+import { HomeProductListComponent } from './components/home/home-product/home-product-list/home-product-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,11 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
     FooterComponent,
     HomeComponent,
     CartComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    SliderComponent,
+    HeaderComponent,
+    HomeProductComponent,
+    HomeProductListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +53,9 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
     MatIconModule,
     MatMenuModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [LoginService, RegisterService, AuthGuard],
   bootstrap: [AppComponent]

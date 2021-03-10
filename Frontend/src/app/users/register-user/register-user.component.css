@@ -1,4 +1,10 @@
+.main-content {
+  margin-left: 350px;
+  padding: 20px;
+}
+
 .container {
+  padding: 10px;
 }
 
 .register {

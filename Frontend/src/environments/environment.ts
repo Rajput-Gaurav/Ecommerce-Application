@@ -6,13 +6,13 @@
 export const environment = {
   production: false,
   // Users Login
-  USERS_LOGIN: '/Users/adminLogin',
+  USERS_LOGIN: '/userLogin/userLogin',
   // Users
-  CREATE_USERS: '/Users/create',
-  GET_All_USERS: '/Users/getUsers',
-  GET_USERS_BY_ID: '/Users/getUserById/',
-  UPDATE_USERS_BY_ID: '/Users/updateUserById/',
-  DELETE_USERS_BY_ID: '/Users/deleteUserById/'
+  CREATE_USERS: '/userLogin/create',
+  GET_All_USERS: '/userLogin/getUsers',
+  GET_USERS_BY_ID: '/userLogin/getUserById/',
+  UPDATE_USERS_BY_ID: '/userLogin/updateUserById/',
+  DELETE_USERS_BY_ID: '/userLogin/deleteUserById/'
 };
 
 export const BASE_URL = "http://localhost:5000";

@@ -1,0 +1,18 @@
+.main-card {
+  background-color: lightgray;
+  padding: 10px;
+}
+
+.card-header {
+  background-color: white;
+}
+
+.card-item {
+  background-color: lightgray;
+}
+
+.cart-img {
+}
+.card-title {
+  font-size: 15px;
+}

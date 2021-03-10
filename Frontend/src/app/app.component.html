@@ -1,6 +1,25 @@
-<div class="container-scroller">
-  <app-navbar *ngIf="showNavbar"></app-navbar>
-  <div class="">
-    <router-outlet></router-outlet>
+<app-navbar *ngIf="showNavbar"></app-navbar>
+
+<div class="container-scroller ">
+
+  <div class="row">
+    <div class="col">
+      <app-header *ngIf="showHeader"></app-header>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col">
+      <app-slider *ngIf="showHeader"></app-slider>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
 </div>
+
+<app-footer></app-footer>

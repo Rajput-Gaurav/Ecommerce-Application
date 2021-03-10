@@ -1,27 +1,34 @@
-<mat-toolbar class="toolbar">
-    <span class="logo">
-        <mat-icon>eco</mat-icon>EasyM@rt
-    </span>
+<div class="row">
+    <div class="col">
+        <mat-toolbar class="toolbar">
+            <span>
+                <a class="logo" [routerLink]="['/home']">
+                    <mat-icon>eco</mat-icon>EasyM@rt
+                </a>
+            </span>
 
-    <div class="spacer"></div>
-    <button mat-button class="cart_btn" [routerLink]="['cart']">
-        <mat-icon>add_shopping_cart</mat-icon>&nbsp;&nbsp;Cart
-    </button>&nbsp;
-    <button *ngIf="showLoginButton" mat-raised-button [routerLink]="['login']">
-        <mat-icon>login</mat-icon>&nbsp;&nbsp;Login
-    </button>
+            <div class="spacer"></div>
+            <button mat-button class="cart_btn" [routerLink]="['cart']">
+                <mat-icon>add_shopping_cart</mat-icon>&nbsp;&nbsp;Cart
+            </button>&nbsp;
+            <button *ngIf="!showButton" mat-raised-button [routerLink]="['login']">
+                <mat-icon>login</mat-icon>&nbsp;&nbsp;Login
+            </button>
 
 
-
-    <button mat-button [matMenuTriggerFor]="menu" *ngIf="showbox">
-        <mat-icon>account_circle</mat-icon>&nbsp; admin<mat-icon>expand_more</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-            <mat-icon>account_circle</mat-icon>Profile
-        </button>
-        <button mat-menu-item (click)="logout()">
-            <mat-icon>logout</mat-icon>Logout
-        </button>
-    </mat-menu>
-</mat-toolbar>
+            <button mat-button [matMenuTriggerFor]="menu" *ngIf="showButton" style="font-size: 18px; color: white;">
+                <img [src]="this.data.imagePath" class="rounded-circle" style="width: 40px; height: 40px;">&nbsp;
+                {{this.data.firstName}}
+                <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>Profile
+                </button>
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>logout</mat-icon>Logout
+                </button>
+            </mat-menu>
+        </mat-toolbar>
+    </div>
+</div>

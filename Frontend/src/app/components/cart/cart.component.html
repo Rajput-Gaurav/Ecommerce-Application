@@ -1,1 +1,84 @@
-<p>cart works!</p>
+<div class="container" *ngIf="!showCart">
+    <div class="row">
+        <div class="col">
+            <div class="card text-center">
+                <div class="card-header">
+                    My Cart
+                </div>
+                <div class="card-body">
+                    <img src="assets/images/cart.png" alt="cart" class="card-img-top cart-img">
+                    <h5 class="card-title">Missing Cart items?</h5>
+                    <p class="card-text">Login to see the items you added previously</p>
+                    <button mat-raised-button class="login-btn" [routerLink]="['/login']">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<div class="container" *ngIf="showCart">
+    <div class="card second-card">
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product Image</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Image</td>
+                                <td scope="row">Shirt</td>
+                                <td>{{500 | currency: 'INR'}}</td>
+                                <td>1</td>
+                                <td>500</td>
+                                <td><button mat-raised-button style="background-color:red;">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card inner-card">
+                        <h5>Cart Summary</h5>
+                        <hr>
+                        <div class="col">
+                            <div class="row">
+                                <p>Sub Total</p>
+                                <div class="spacer"></div>
+                                <p>{{500 | currency: 'INR'}}</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <p>Shipping Cost</p>
+                                <div class="spacer"></div>
+                                <p>{{50 | currency: 'INR'}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col">
+                            <div class="row">
+                                <h6>Grand Total</h6>
+                                <div class="spacer"></div>
+                                <h6>{{550 | currency: 'INR'}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<mat-toolbar class="toolbar">
+    <div class="spacer"></div>
+    <span>
+        <button mat-button [routerLink]="['/grocery']">Grocery</button>
+    </span>
+    <div class="spacer"></div>
+
+    <span>
+        <button mat-button>Mobiles</button>
+    </span>
+    <div class="spacer"></div>
+
+    <span>
+        <button mat-button [matMenuTriggerFor]="menu">Fashion&nbsp;<mat-icon>expand_more</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+        </mat-menu>
+    </span>
+
+    <div class="spacer"></div>
+    <span>
+        <button mat-button [matMenuTriggerFor]="menu">Electronics&nbsp;<mat-icon>expand_more</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+        </mat-menu>
+    </span>
+
+    <div class="spacer"></div>
+    <span>
+        <button mat-button [matMenuTriggerFor]="menu">Home&nbsp;<mat-icon>expand_more</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+        </mat-menu>
+    </span>
+
+    <div class="spacer"></div>
+    <span>
+        <button mat-button [matMenuTriggerFor]="menu">Appliance&nbsp;<mat-icon>expand_more</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+        </mat-menu>
+    </span>
+
+    <div class="spacer"></div>
+    <span>
+        <button mat-button>Beauty</button>
+
+    </span>
+    <div class="spacer"></div>
+
+    <span>
+        <button mat-button [matMenuTriggerFor]="menu">Toys&More&nbsp;<mat-icon>expand_more</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+        </mat-menu>
+    </span>
+
+    <div class="spacer"></div>
+</mat-toolbar>

@@ -1,0 +1,66 @@
+/* --------------FIRST SECTION--------------------- */
+.container-scroller {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5%;
+}
+.first-content {
+  padding: 10px;
+}
+.divider {
+  margin-top: 10px;
+}
+
+.card-items {
+  padding: 25px 10px 10px 10px;
+}
+
+.card-body {
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  padding: 5px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.card-title {
+  width: 100%;
+}
+
+.card-text {
+}
+
+/* ---------------SECOND SECTION:--------------- */
+.second-section {
+  padding: 10px;
+}
+
+.card {
+}
+
+.card-img {
+  width: 100%;
+}
+
+/* ---------------SECOND CONTENT------------------ */
+.second-content {
+  padding: 10px;
+}
+
+/* ---------------THIRD CONTENT------------------- */
+.third-content {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+/* -------------FOURTH CONTENT---------------------- */
+.fourth-content {
+  margin-top: 10px;
+  padding: 10px;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,20 +9,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  showLoginButton: boolean = true;
-  showbox: boolean = false;
+  showButton: boolean = true;
   data: any = [];
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private commonService: CommonService) {
 
   }
 
   ngOnInit(): void {
     this.getUserData();
+
+    if (this.commonService.checkUser()) {
+      this.showButton = true;
+    } else {
+      this.showButton = false;
+    }
   }
 
+  // GET data from localStorage:
   getUserData() {
     this.data = JSON.parse(localStorage.getItem('user'));
     console.log("User Data: ", this.data);

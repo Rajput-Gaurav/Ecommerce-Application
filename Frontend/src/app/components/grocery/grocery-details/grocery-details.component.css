@@ -1,0 +1,12 @@
+.container-scroller {
+  background-color: lightgray;
+  padding: 10px;
+}
+
+.img {
+  width: 500px;
+}
+
+.button {
+  margin-top: 10px;
+}
