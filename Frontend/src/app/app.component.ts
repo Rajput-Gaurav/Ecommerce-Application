@@ -14,6 +14,7 @@ export class AppComponent {
   showHeader: boolean = true;
   showSlider: boolean = true;
   showCart: boolean = true;
+  showaboutUs: boolean = true;
   title = 'Frontend';
 
   constructor(private router: Router) {
@@ -22,13 +23,15 @@ export class AppComponent {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         // Show Login Page when no user login:
-        if ((event['url'] == '/login') || (event['url'] == '/register') || (event['url'] == '/cart') || (event['url'] == '/grocery') || (event['url'] == '/grocery/groceryDetails/:Id')) {
+        if ((event['url'] == '/login') || (event['url'] == '/register') || (event['url'] == '/cart') || (event['url'] == '/grocery') || (event['url'] == '/grocery/groceryDetails/:Id') ||
+          (event['url'] == '/about-us')) {
           this.showSidebar = false;
           // this.showNavbar = false;
           this.showHeader = false;
           this.showFooter = false;
           this.showSlider = false;
           this.showCart = false;
+          this.showaboutUs = false;
 
         } else {
           this.showSidebar = true;
@@ -37,6 +40,7 @@ export class AppComponent {
           this.showFooter = true;
           this.showSlider = true;
           this.showCart = true;
+          this.showaboutUs = true;
         }
       }
     });

@@ -1,0 +1,52 @@
+<section class="main-content">
+    <mat-card class="card">
+        <div class="row map">
+            <div class="col">
+                <h2>Our Location</h2>
+
+                <agm-map class="map" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                    <agm-snazzy-info-window [maxWidth]="300" [closeWhenOthersOpen]="true">
+                        <ng-template>
+                            EasyM@rt Surat
+                        </ng-template>
+                    </agm-snazzy-info-window>
+                </agm-map>
+
+            </div>
+        </div>
+    </mat-card>
+
+    <!-- <div class="spacer"></div> -->
+    <mat-card class="card">
+        <div class="content">
+            <h2>About Us</h2>
+            <span></span>
+
+            <p>We strive to have a positive impact on customers, employees, small businesses, the economy, and
+                communities.
+                We are smart, passionate builders with different backgrounds and goals, who share a common
+                desire to
+                always be learning and inventing on behalf of our customers.</p>
+
+            <div class="btn-group">
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col">
+                        <button mat-raised-button class="btn-block">Work</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col">
+                        <button mat-raised-button class="btn-block">Service</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col">
+                        <button mat-raised-button class="btn-block">Contact</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+
+</section>

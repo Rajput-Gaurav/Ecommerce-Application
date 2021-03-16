@@ -4,12 +4,14 @@ import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AuthGuard } from './provider/auth.guard';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
   { path: 'home', component: HomeComponent },
+  { path: 'about-us', component: AboutUsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'not-user', component: ErrorPageComponent },
 

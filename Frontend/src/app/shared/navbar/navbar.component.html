@@ -21,9 +21,13 @@
                 {{this.data.firstName}}
                 <mat-icon>expand_more</mat-icon>
             </button>
+
             <mat-menu #menu="matMenu">
                 <button mat-menu-item>
                     <mat-icon>account_circle</mat-icon>Profile
+                </button>
+                <button mat-menu-item [routerLink]="['/about-us']">
+                    <mat-icon>info</mat-icon>About Us
                 </button>
                 <button mat-menu-item (click)="logout()">
                     <mat-icon>logout</mat-icon>Logout

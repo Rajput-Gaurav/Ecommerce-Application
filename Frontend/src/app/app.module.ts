@@ -12,6 +12,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 
+// GOOGLE MAP:
+import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -29,6 +33,8 @@ import { AuthGuard } from './provider/auth.guard';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeProductComponent } from './components/home/home-product/home-product.component';
 import { HomeProductListComponent } from './components/home/home-product/home-product-list/home-product-list.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,8 @@ import { HomeProductListComponent } from './components/home/home-product/home-pr
     SliderComponent,
     HeaderComponent,
     HomeProductComponent,
-    HomeProductListComponent
+    HomeProductListComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,11 @@ import { HomeProductListComponent } from './components/home/home-product/home-pr
     MatDialogModule,
     MatInputModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    }),
+    AgmSnazzyInfoWindowModule
   ],
   providers: [LoginService, RegisterService, AuthGuard],
   bootstrap: [AppComponent]
