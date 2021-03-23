@@ -37,10 +37,6 @@ const groceryStorage = multer.diskStorage({
   },
 });
 
-// const fileFilter = (req, file, cb) => {
-//   const allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg'];
-//   allowedMimeTypes.includes(file.mimetype) ? cb(null, true) : cb(null, false);
-// };
 
 const GroceryStorage = multer({ storage: groceryStorage, fileFilter: fileFilter }).single('image');
 module.exports = GroceryStorage;

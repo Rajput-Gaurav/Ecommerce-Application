@@ -41,10 +41,19 @@
       </a>
     </li>
 
-    <!-- CUSTOMERS: -->
+    <!-- CUSTOMERS ORDERS: -->
     <li class="nav-item" [ngClass]="{ 'active': customersOrders.isActive }">
       <a class="nav-link" routerLink="/customersOrders" routerLinkActive #customersOrders="routerLinkActive">
         <span class="menu-title">Customers Orders</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+
+    <!-- SUPPORT: -->
+    <!-- set route too addSupport Page: -->
+    <li class="nav-item" [ngClass]="{ 'active': support.isActive }">
+      <a class="nav-link" routerLink="/support/addSupport" routerLinkActive #support="routerLinkActive">
+        <span class="menu-title">Support</span>
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li>

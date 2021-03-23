@@ -8,15 +8,17 @@ const mongoose = require('mongoose');
 const database = require('./DB');
 
 const PORT = 5000;
-// Controller:
 
+// Controller:
+const Admin = require('./Routers/admin-router');
+const User = require('./Routers/users-router');
 const Categories = require('./Routers/categories-router');
 const productCategories = require('./Routers/productCategories.router');
 const Products = require('./Routers/productDetails-router');
+const Grocery = require('./Routers/grocery-router');
 const StudentCourse = require('./Routers/studentCourse-router');
 const AvailableCourse = require('./Routers/availableCourse-router');
-const Admin = require('./Routers/admin-router');
-const User = require('./Routers/users-router');
+const Support = require('./Routers/support.router');
 
 // Create an Express App:
 const app = express();
@@ -36,6 +38,7 @@ app.use(cors());
 // Static Path for access images:
 app.use('/public/products', express.static(path.join('public/products')));
 app.use('/public/users', express.static(path.join('public/users')));
+app.use('/public/grocery', express.static(path.join('public/grocery')));
 
 //mount the router:
 app.use('/adminLogin', Admin);
@@ -43,8 +46,10 @@ app.use('/userLogin', User);
 app.use('/categories', Categories);
 app.use('/productCategories', productCategories);
 app.use('/products', Products);
+app.use('/grocery', Grocery);
 app.use('/studentCourse', StudentCourse);
 app.use('/availableCourse', AvailableCourse);
+app.use('/support', Support);
 
 // Create a Nodejs server:
 server.listen(PORT, () => {

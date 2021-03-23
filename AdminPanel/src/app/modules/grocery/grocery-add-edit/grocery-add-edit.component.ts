@@ -27,10 +27,16 @@ export class GroceryAddEditComponent implements OnInit {
     private groceryService: GroceryService,
     private productCategoryService: ProductCategoriesService) {
     this.createForm();
+    this.getProductsCategory();
   }
 
   ngOnInit(): void {
-    this.getProductsCategory();
+    this.route.params.subscribe(params => {
+      this.groceryId = params['Id'];
+      if (!this.commonService.isUndefiendOrNull(this.groceryId)) {
+        this.getGroceryById(this.groceryId);
+      }
+    })
   }
 
   // CALCULATION BASIC RATE:
@@ -76,6 +82,25 @@ export class GroceryAddEditComponent implements OnInit {
       )
   }
 
+  // GET GROCERY BY ID:
+  getGroceryById(id) {
+    this.groceryService.getGroceryById(id)
+      .subscribe(response => {
+        console.log("Selected Grocery: ", response);
+        this.grocery = response;
+        this.groceryForm.patchValue({
+          image: this.grocery['data'].image,
+          productName: this.grocery['data'].productName,
+          productCategory: this.grocery['data'].productCategory,
+          productRating: this.grocery['data'].productRating,
+          mrp: this.grocery['data'].mrp,
+          status: this.grocery['data'].status,
+          quantity: this.grocery['data'].quantity,
+          totalamount: this.grocery['data'].totalamount
+        });
+      });
+  }
+
   // Save Grocery:
   saveGrocery() {
     this.submitted = true;
@@ -95,5 +120,23 @@ export class GroceryAddEditComponent implements OnInit {
     let groceryFormData = { ...this.groceryForm.value };
     groceryFormData['totalamount'] = this.totalamount;
     console.log("groceryFormData: ", groceryFormData);
+
+    if (!this.commonService.isUndefiendOrNull(this.groceryId)) {
+      this.groceryService.addEditGrocery(groceryFormData, this.groceryForm.value.image, this.groceryId)
+        .subscribe(
+          (async (data: any) => {
+            console.log("Grocery Updated: ", data);
+            this.router.navigate(['/grocery']);
+          })
+        );
+    } else {
+      this.groceryService.addEditGrocery(groceryFormData, this.groceryForm.value.image, '')
+        .subscribe(
+          (async (data: any) => {
+            console.log("Grocery Added: ", data);
+            this.router.navigate(['/grocery']);
+          })
+        );
+    }
   }
 }

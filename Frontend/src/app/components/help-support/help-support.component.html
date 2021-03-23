@@ -1,0 +1,106 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Tickets
+                            </h4>
+                            <hr>
+                        </div>
+                        <div class="card-body">
+
+                            <form [formGroup]="supportForm" novalidate (ngSubmit)="saveSupport()">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>First Name<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="text" [ngModel]="user.firstName" formControlName="firstName"
+                                                class="form-control" disabled
+                                                [ngClass]="{'is-invalid': submitted && frm.firstName.errors}">
+                                            <div *ngIf="submitted && frm.firstName.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.firstName.errors.required">firstname is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Last Name<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="text" [ngModel]="user.lastName" formControlName="lastName"
+                                                class="form-control" disabled
+                                                [ngClass]="{'is-invalid': submitted && frm.lastName.errors}">
+                                            <div *ngIf="submitted && frm.lastName.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.lastName.errors.required">lastname is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="email" [ngModel]="user.email" formControlName="email"
+                                                class="form-control" disabled
+                                                [ngClass]="{'is-invalid': submitted && frm.email.errors}">
+                                            <div *ngIf="submitted && frm.email.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.email.errors.required">email is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <!-- IMPLEMENT CHAT: -->
+                                <div class="overflow-auto">
+                                    <div class="row">
+                                        <div class="col-md-12 grid-margin stretch-card">
+                                            <div class="card chat-card">
+                                                <div *ngFor="let support of supports">
+                                                    <div style="margin: 10px;"
+                                                        [ngClass]="(support.userType=='User')?'float-sm-right':'float-left'">
+                                                        <span>{{support.message}}</span><br>
+                                                        <span>{{support.createdAt | date: 'medium'}}
+                                                            <div class="float-sm-right text-info"
+                                                                *ngIf="support.userType == 'User'">
+                                                                <mat-icon>done_all</mat-icon>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="divider">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Message</label>
+                                            <textarea class="msg" formControlName="message"
+                                                class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button type="submit" class="btn-send" mat-raised-button>Send</button>&nbsp;
+                                <button class="btn btn-light" routerLink="/help-support">Cancel</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

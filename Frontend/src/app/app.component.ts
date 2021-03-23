@@ -24,7 +24,7 @@ export class AppComponent {
       if (event instanceof NavigationStart) {
         // Show Login Page when no user login:
         if ((event['url'] == '/login') || (event['url'] == '/register') || (event['url'] == '/cart') || (event['url'] == '/grocery') || (event['url'] == '/grocery/groceryDetails/:Id') ||
-          (event['url'] == '/about-us')) {
+          (event['url'] == '/about-us') || (event['url'] == '/help-support')) {
           this.showSidebar = false;
           // this.showNavbar = false;
           this.showHeader = false;

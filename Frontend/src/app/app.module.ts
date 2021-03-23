@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 // Angular Material:
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,6 +21,14 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 import { AppRoutingModule } from './app-routing.module';
 
+// AUTHGUARD:
+import { AuthGuard } from './provider/auth.guard';
+
+// SERVICES:
+import { LoginService } from './services/login.service';
+import { RegisterService } from './services/register.service';
+
+// COMPONENTS:
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -26,15 +37,11 @@ import { CartComponent } from './components/cart/cart.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { SliderComponent } from './shared/slider/slider.component';
 
-import { LoginService } from './services/login.service';
-import { RegisterService } from './services/register.service';
-
-import { AuthGuard } from './provider/auth.guard';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeProductComponent } from './components/home/home-product/home-product.component';
 import { HomeProductListComponent } from './components/home/home-product/home-product-list/home-product-list.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { from } from 'rxjs';
+import { HelpSupportComponent } from './components/help-support/help-support.component';
 
 @NgModule({
   declarations: [
@@ -48,13 +55,17 @@ import { from } from 'rxjs';
     HeaderComponent,
     HomeProductComponent,
     HomeProductListComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    HelpSupportComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,

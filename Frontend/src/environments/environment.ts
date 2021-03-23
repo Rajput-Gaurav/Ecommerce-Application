@@ -12,7 +12,10 @@ export const environment = {
   GET_All_USERS: '/userLogin/getUsers',
   GET_USERS_BY_ID: '/userLogin/getUserById/',
   UPDATE_USERS_BY_ID: '/userLogin/updateUserById/',
-  DELETE_USERS_BY_ID: '/userLogin/deleteUserById/'
+  DELETE_USERS_BY_ID: '/userLogin/deleteUserById/',
+  // SUPPORT:
+  CREATE_SUPPORT: '/support/create',
+  GET_All_SUPPORT: '/support/getAllSupport',
 };
 
 export const BASE_URL = "http://localhost:5000";

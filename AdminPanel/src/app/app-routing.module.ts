@@ -12,8 +12,10 @@ const routes: Routes = [
   { path: 'products', loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule), canActivate: [AuthGuard] },
   // PRODUCTS:
   { path: 'grocery', loadChildren: () => import('./modules/grocery/grocery.module').then(m => m.GroceryModule), canActivate: [AuthGuard] },
+
   { path: 'customers', loadChildren: () => import('./modules/customers/customers.module').then(m => m.CustomersModule), canActivate: [AuthGuard] },
   { path: 'customersOrders', loadChildren: () => import('./modules/customers-orders/customers-orders.module').then(m => m.CustomersOrdersModule), canActivate: [AuthGuard] },
+  { path: 'support', loadChildren: () => import('./modules/support/support.module').then(m => m.SupportModule), canActivate: [AuthGuard] }
 ];
 
 @NgModule({

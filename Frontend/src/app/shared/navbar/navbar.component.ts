@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
   // GET data from localStorage:
   getUserData() {
     this.data = JSON.parse(localStorage.getItem('user'));
-    console.log("User Data: ", this.data);
+    // console.log("User Data: ", this.data);
 
   }
 

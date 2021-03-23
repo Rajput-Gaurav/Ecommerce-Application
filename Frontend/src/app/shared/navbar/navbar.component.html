@@ -23,12 +23,19 @@
             </button>
 
             <mat-menu #menu="matMenu">
+                <!-- -------PROFILE-------------- -->
                 <button mat-menu-item>
                     <mat-icon>account_circle</mat-icon>Profile
                 </button>
+                <!-- --------ABOUT US-------------- -->
                 <button mat-menu-item [routerLink]="['/about-us']">
                     <mat-icon>info</mat-icon>About Us
                 </button>
+                <!-- --------HELP-SUPPORT------------ -->
+                <button mat-menu-item [routerLink]="['/help-support']">
+                    <mat-icon>help_center</mat-icon>Help&Support
+                </button>
+                <!-- --------LOGOUT-------------------- -->
                 <button mat-menu-item (click)="logout()">
                     <mat-icon>logout</mat-icon>Logout
                 </button>

@@ -31,7 +31,18 @@ export const environment = {
   GET_PRODUCTS_BY_FILTER: '/products/findFilterProduct',
   UPDATE_PRODUCTS_STATUS_BY_ID: '/products/updateProductStatus/',
   UPDATE_PRODUCTS_BY_ID: '/products/updateProductById/',
-  DELETE_PRODUCTS_BY_ID: '/products/deleteProductById/'
+  DELETE_PRODUCTS_BY_ID: '/products/deleteProductById/',
+  // GROCERY:
+  CREATE_GROCERY: '/grocery/create',
+  GET_All_GROCERY: '/grocery/getAllGrocery',
+  GET_GROCERY_BY_ID: '/grocery/getGroceryById/',
+  GET_GROCERY_BY_FILTER: '/grocery/findFilterGrocery',
+  UPDATE_GROCERY_STATUS_BU_ID: '/grocery/updateGroceryStatus/',
+  UPDATE_GROCERY_BY_ID: '/grocery/updateGroceryById/',
+  DELETE_GROCERY_BY_ID: '/grocery/deleteGroceryById/',
+  // HELP & SUPPORT:
+  CREATE_SUPPORT: '/support/create',
+  GET_All_SUPPORT: '/support/getAllSupport',
 };
 
 export const BASE_URL = "http://localhost:5000";

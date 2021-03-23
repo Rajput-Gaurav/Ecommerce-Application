@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const GrocerySshema = new mongoose.Schema({
     imagePath: String,
     productName: String,
-    productCategory: String,
+    productCategory: {type: String, trim: true},
     productRating: String,
     mrp: String,
     status: String,

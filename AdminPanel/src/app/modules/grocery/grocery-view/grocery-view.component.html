@@ -36,30 +36,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <tr *ngFor="let products of allProducts; let i = index">
-                                    <td *ngIf="allProducts[i]._id == products._id">{{i + 1}}</td>
-                                    <td><img [src]="products.imagePath" [alt]="products.productName"
+                                <tr *ngFor="let grocery of groceries; let i = index">
+                                    <td *ngIf="groceries[i]._id == grocery._id">{{i + 1}}</td>
+                                    <td><img [src]="grocery.imagePath" [alt]="grocery.productName"
                                             class="rounded-circle img"></td>
-                                    <td>{{products.productName}}</td>
-                                    <td>{{products.productCategory}}</td>
+                                    <td>{{grocery.productName}}</td>
+                                    <td>{{grocery.productCategory}}</td>
                                     <td>
-                                        <ngb-rating [(rate)]="products.productRating" [readonly]="true" [max]="5"
+                                        <ngb-rating [(rate)]="grocery.productRating" [readonly]="true" [max]="5"
                                             class="rating">
                                         </ngb-rating>
                                     </td>
 
-                                    <td>{{products.mrp}}</td>
-                                    <td><span class="badge badge-info">{{products.status}}</span></td>
-                                    <td>{{products.quantity}}</td>
-                                    <td>{{products.totalamount}}</td>
+                                    <td>{{grocery.mrp}}</td>
+                                    <td><span class="badge badge-info">{{grocery.status}}</span></td>
+                                    <td>{{grocery.quantity}}</td>
+                                    <td>{{grocery.totalamount}}</td>
 
                                     <td>
                                         <button type="button" class="btn btn-sm btn-block btn-gradient-success"
-                                            [routerLink]="['/products/editProducts', products._id]">Edit</button>
+                                            [routerLink]="['/grocery/editGrocery', grocery._id]">Edit</button>
                                         <button type="button" class="btn btn-sm btn-block btn-gradient-danger"
-                                            (click)="deleteProducts(products)">Delete</button>
+                                            (click)="deleteGrocery(grocery)">Delete</button>
                                     </td>
-                                </tr> -->
+                                </tr>
                             </tbody>
                         </table>
                     </div>

@@ -5,6 +5,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { AuthGuard } from './provider/auth.guard';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { HelpSupportComponent } from './components/help-support/help-support.component';
 
 const routes: Routes = [
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'help-support', component: HelpSupportComponent },
   { path: 'not-user', component: ErrorPageComponent },
 
   { path: '', loadChildren: () => import('./components/grocery/grocery.module').then(m => m.GroceryModule) }

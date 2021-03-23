@@ -15,4 +15,9 @@ export class CommonService {
       return false;
     }
   }
+
+  // GET ADMIN DATA FROM LOCALSTORAGE:
+  getData() {
+    return JSON.parse(localStorage.getItem("user"));
+  }
 }
