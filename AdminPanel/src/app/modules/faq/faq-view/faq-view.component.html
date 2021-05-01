@@ -1,0 +1,41 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title pull-left">FAQ</h4>
+                        <a class="btn btn-primary float-right" routerLink="/faq/addFaq">
+                            Add FAQ</a>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Question</td>
+                                    <td>Answer</td>
+                                    <td>Action</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let faq of Faqs; let i = index">
+                                    <td *ngIf="Faqs[i]._id == faq._id">{{i + 1}}</td>
+                                    <td>{{faq.question}}</td>
+                                    <td>{{faq.answer | characterLimit: 50}}</td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-sm  btn-gradient-success btn-fw"
+                                            [routerLink]="['/faq/editFaq', faq._id]">Edit</button>
+                                        <button type="button" class="btn btn-sm  btn-gradient-danger btn-fw"
+                                            (click)="deleteFaqs(faq)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,8 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const Categories = new mongoose.Schema({
+const Categories = new mongoose.Schema(
+  {
     categoryName: String,
-    isDeleted: false
-}, {timestamps: true})
+    isDeleted: false,
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('categories', Categories);
+module.exports = mongoose.model("categories", Categories);

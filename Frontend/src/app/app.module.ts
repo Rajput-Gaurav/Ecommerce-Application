@@ -14,6 +14,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatBadgeModule } from '@angular/material/badge';
 
 // GOOGLE MAP:
 import { AgmCoreModule } from '@agm/core';
@@ -42,6 +45,9 @@ import { HomeProductComponent } from './components/home/home-product/home-produc
 import { HomeProductListComponent } from './components/home/home-product/home-product-list/home-product-list.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { HelpSupportComponent } from './components/help-support/help-support.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileInformationComponent } from './components/profile/profile-information/profile-information.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +62,10 @@ import { HelpSupportComponent } from './components/help-support/help-support.com
     HomeProductComponent,
     HomeProductListComponent,
     AboutUsComponent,
-    HelpSupportComponent
+    HelpSupportComponent,
+    FaqComponent,
+    ProfileComponent,
+    ProfileInformationComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +75,7 @@ import { HelpSupportComponent } from './components/help-support/help-support.com
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatFormFieldModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -74,6 +84,8 @@ import { HelpSupportComponent } from './components/help-support/help-support.com
     MatInputModule,
     MatCardModule,
     MatDividerModule,
+    MatExpansionModule,
+    MatBadgeModule,
     AgmCoreModule.forRoot({
       apiKey: ''
     }),

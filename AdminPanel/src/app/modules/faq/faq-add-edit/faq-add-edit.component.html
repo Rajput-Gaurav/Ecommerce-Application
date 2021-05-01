@@ -1,0 +1,59 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">{{(faqId)? 'Edit Faq' : 'Add Faq'}}
+                            </h4>
+                        </div>
+                        <div class="card-body">
+
+                            <form [formGroup]="faqForm" novalidate (ngSubmit)="saveFaq()">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Question<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="text" placeholder="Enter Your Question"
+                                                formControlName="question" class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.question.errors}">
+                                            <div *ngIf="submitted && frm.question.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.question.errors.required">question is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Answer<span class="text-danger">&nbsp;*</span></label>
+                                            <input type="text" placeholder="Enter Your Answer" formControlName="answer"
+                                                class="form-control"
+                                                [ngClass]="{'is-invalid': submitted && frm.answer.errors}">
+                                            <div *ngIf="submitted && frm.answer.errors"
+                                                class="text-danger invalid-feedback">
+                                                <div *ngIf="frm.answer.errors.required">answer is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-gradient-primary mr-2">
+                                    {{(faqId)? 'Edit' : 'Add '}} Faq
+                                </button>
+                                <button class="btn btn-light" routerLink="/faq">Cancel</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

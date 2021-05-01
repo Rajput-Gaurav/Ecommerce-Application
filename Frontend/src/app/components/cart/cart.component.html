@@ -1,88 +1,100 @@
-<div class="container" *ngIf="!showCart">
-    <div class="row">
-        <div class="col">
-            <div class="card text-center">
-                <div class="card-header">
-                    My Cart
-                </div>
-                <div class="card-body">
-                    <img src="assets/images/cart.png" alt="cart" class="card-img-top cart-img">
-                    <h5 class="card-title">Missing Cart items?</h5>
-                    <p class="card-text">Login to see the items you added previously</p>
-                    <button mat-raised-button class="login-btn" [routerLink]="['/login']">Login</button>
-                </div>
-            </div>
-        </div>
+<div class="shopping-cart-conatiner">
+
+    <div class="title">
+        My Cart
     </div>
-</div>
 
-<!-- ---------------------------------------------------------- -->
-<div class="container" *ngIf="showCart">
-    <div class="card second-card">
+    <div *ngIf="cartData">
 
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Product Image</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Total</th>
-                                <th scope="col">Remove</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Image</td>
-                                <td scope="row">Shirt</td>
-                                <td>{{500 | currency: 'INR'}}</td>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="number" value="1" class="form-control">
-                                    </div>
-                                </td>
-                                <td>500</td>
-                                <td><button mat-raised-button style="background-color:red;">Delete</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <table class="table">
+            <thead>
+                <tr class="header">
+                    <th class="img">Product Image</th>
+                    <th class="name">Name</th>
+                    <th class="price">Price</th>
+                    <th class="quantity">Quantity</th>
+                    <th class="total">Sub Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <div class="body" *ngFor="let cart of cartData">
 
-            <div class="col">
-                <div class="card">
-                    <div class="card inner-card">
-                        <h5>Cart Summary</h5>
-                        <hr>
-                        <div class="col">
-                            <div class="row">
-                                <p>Sub Total</p>
-                                <div class="spacer"></div>
-                                <p>{{500 | currency: 'INR'}}</p>
-                            </div>
+                        <div class="img">
+
+                            <img class="productImg" src={{cart.imagePath}} alt={{cart.imagePath}}>
                         </div>
-                        <div class="col">
-                            <div class="row">
-                                <p>Shipping Cost</p>
-                                <div class="spacer"></div>
-                                <p>{{50 | currency: 'INR'}}</p>
-                            </div>
+                        <div class="name">
+                            <h3> {{cart.productName | titlecase}}</h3>
+                            <p>Product Description Here.</p>
                         </div>
-                        <hr>
-                        <div class="col">
-                            <div class="row">
-                                <h6>Grand Total</h6>
-                                <div class="spacer"></div>
-                                <h6>{{550 | currency: 'INR'}}</h6>
-                            </div>
+                        <div class="price">
+                            {{cart.mrp | currency: 'INR'}}
                         </div>
+                        <div class="quantity">
+                            <span><i class="material-icons btn btn-success close-icon"
+                                    (click)="decrement(cart._id, cart.quantity)">remove</i></span>
+
+                            <input
+                                style="height: 35px; width: 35px; margin-right: 5px; margin-left: 5px; text-align: center;"
+                                type="text" size="1" [(ngModel)]=cart.quantity />
+
+                            <span><i class="material-icons btn btn-success close-icon"
+                                    (click)="increment(cart._id, cart.quantity)">add</i></span>
+                        </div>
+                        <div class="total">
+                            {{cart.mrp * cart.quantity | currency: 'INR'}}
+                        </div>
+                        <div class="close">
+                            <span>
+                                <mat-icon class="material-icons delete-btn" (click)="deleteSingleCart(cart._id)">delete
+                                </mat-icon>
+                            </span>
+                        </div>
+
                     </div>
+                </tr>
+                <div class="btn-group" *ngIf="cartData">
+                    <button type="button" class="delete-cart" mat-raised-button (click)="deleteAllCart()">Delete all
+                        Cart</button>
                 </div>
+            </tbody>
+        </table>
+
+
+        <div class="cart-total">
+            <h2>CART SUMMARY</h2>
+            <hr>
+            <table style="width: 100%">
+                <tr>
+                    <td>Total</td>
+                    <td>{{subTotal | currency: 'INR'}}</td>
+                </tr>
+                <tr>
+                    <td>Delivery</td>
+                    <td>{{delivery | currency: 'INR'}}</td>
+                </tr>
+                <tr>
+                    <td>Discount</td>
+                    <td>{{discount | currency: 'INR'}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>Total Amount</td>
+                    <td><b>{{subTotal}}</b></td>
+                </tr>
+            </table>
+            <div class="checkout-button">
+                <button mat-stroked-button color="primary" class="button full-button" (click)="checkOut()">
+                    PROCEED TO CHECKOUT
+                </button>
             </div>
         </div>
-
     </div>
+
 </div>

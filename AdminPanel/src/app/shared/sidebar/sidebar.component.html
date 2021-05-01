@@ -49,6 +49,14 @@
       </a>
     </li>
 
+    <!-- FAQ: -->
+    <li class="nav-item" [ngClass]="{ 'active': faq.isActive }">
+      <a class="nav-link" routerLink="/faq" routerLinkActive #faq="routerLinkActive">
+        <span class="menu-title">Faq</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+
     <!-- SUPPORT: -->
     <!-- set route too addSupport Page: -->
     <li class="nav-item" [ngClass]="{ 'active': support.isActive }">

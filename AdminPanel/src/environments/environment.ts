@@ -40,6 +40,12 @@ export const environment = {
   UPDATE_GROCERY_STATUS_BU_ID: '/grocery/updateGroceryStatus/',
   UPDATE_GROCERY_BY_ID: '/grocery/updateGroceryById/',
   DELETE_GROCERY_BY_ID: '/grocery/deleteGroceryById/',
+  // FAQ:
+  CREATE_FAQ: '/faq/create',
+  GET_All_FAQ: '/faq/getAllFaq',
+  GET_FAQ_BY_ID: '/faq/getFaqById/',
+  UPDATE_FAQ_BY_ID: '/faq/updateFaq/',
+  DELETE_FAQ_BY_ID: '/faq/deleteFaq/',
   // HELP & SUPPORT:
   CREATE_SUPPORT: '/support/create',
   GET_All_SUPPORT: '/support/getAllSupport',

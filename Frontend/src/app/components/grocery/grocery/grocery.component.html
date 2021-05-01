@@ -5,29 +5,18 @@
 
     <div class="card-item">
         <div class="row">
-            <div class="col-md-2" style="margin-top: 10px;" *ngFor="let i of [1,2,3,4,5,6,7]">
+            <div class="col" style="margin-top: 10px;" *ngFor="let grocery of Groceries; let i = index">
                 <div class="card">
                     <div class="card-body">
-                        <img src="assets/images/samples/small/13.jpg" alt="cart" class="card-img-top cart-img">
-                        <h5 class="card-title">Missing Cart items?</h5>
-                        <p class="card-text">Price: {{1000 | currency: 'INR'}}</p>
+                        <img [src]="grocery.imagePath" alt="cart" class="card-img-top card-img">
+                        <h5 class="card-title">{{grocery.productName}}</h5>
+                        <p class="card-text">Price: {{grocery.mrp | currency: 'INR'}}</p>
                         <button mat-raised-button class="login-btn">Add to Cart</button>&nbsp;
-                        <button mat-raised-button class="view-btn" [routerLink]="['groceryDetails/:Id']">View</button>
+                        <button mat-raised-button class="view-btn"
+                            [routerLink]="['/grocery/groceryDetails',grocery._id]">View</button>
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="col-md-2">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="assets/images/cart.png" alt="cart" class="card-img-top cart-img">
-                        <h5 class="card-title">Missing Cart items?</h5>
-                        <p class="card-text">Price: {{1000 | currency: 'INR'}}</p>
-                        <button mat-raised-button class="login-btn">Add to Cart</button>&nbsp;
-                        <button mat-raised-button class="view-btn">View</button>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 

@@ -1,0 +1,15 @@
+/* Profile Information */
+.form-box {
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.form-box mat-form-field {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.address {
+  height: 39px;
+}

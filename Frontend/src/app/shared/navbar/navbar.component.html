@@ -9,7 +9,8 @@
 
             <div class="spacer"></div>
             <button mat-button class="cart_btn" [routerLink]="['cart']">
-                <mat-icon>add_shopping_cart</mat-icon>&nbsp;&nbsp;Cart
+                <!-- <mat-icon>add_shopping_cart</mat-icon> -->
+                <mat-icon matBadge={{cartCount}} matBadgeColor="warn">add_shopping_cart</mat-icon>&nbsp;&nbsp;Cart
             </button>&nbsp;
             <button *ngIf="!showButton" mat-raised-button [routerLink]="['login']">
                 <mat-icon>login</mat-icon>&nbsp;&nbsp;Login
@@ -24,12 +25,16 @@
 
             <mat-menu #menu="matMenu">
                 <!-- -------PROFILE-------------- -->
-                <button mat-menu-item>
+                <button mat-menu-item [routerLink]="['/profile']">
                     <mat-icon>account_circle</mat-icon>Profile
                 </button>
                 <!-- --------ABOUT US-------------- -->
                 <button mat-menu-item [routerLink]="['/about-us']">
                     <mat-icon>info</mat-icon>About Us
+                </button>
+                <!-- --------FAQ-------------------- -->
+                <button mat-menu-item [routerLink]="['/faq']">
+                    <mat-icon>question_answer</mat-icon>FAQ
                 </button>
                 <!-- --------HELP-SUPPORT------------ -->
                 <button mat-menu-item [routerLink]="['/help-support']">

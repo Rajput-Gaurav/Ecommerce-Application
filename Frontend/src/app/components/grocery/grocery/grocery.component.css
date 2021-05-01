@@ -9,10 +9,18 @@
 
 .card-item {
   background-color: lightgray;
+  width: fit-content;
 }
 
-.cart-img {
+.card-img {
+  width: 200px;
+  height: 200px;
 }
+
+.card-body {
+  width: fit-content;
+}
+
 .card-title {
   font-size: 15px;
 }

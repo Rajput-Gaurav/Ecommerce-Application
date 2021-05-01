@@ -1,0 +1,54 @@
+<h3>Personal Information</h3>
+<form [formGroup]="profileForm" novalidate (ngSubmit)="saveProfile()">
+    <div class="form-box">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" placeholder="Enter First Name" formControlName="firstName"
+                        [ngModel]=userData.firstName />
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="lastName"
+                        [ngModel]=userData.lastName />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="Enter Email" formControlName="email"
+                        [ngModel]=userData.email />
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Phone No</label>
+                    <input type="number" class="form-control" placeholder="Enter Phone No" formControlName="phonoNo"
+                        [ngModel]=userData.mobileNo />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>ZipCode</label>
+                    <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="zipcode"
+                        [ngModel]=userData.zipCode />
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea type="text" class="form-control address" placeholder="Enter Your Address"
+                        formControlName="address" [ngModel]=userData.address></textarea>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary">Update</button>
+    </div>
+</form>

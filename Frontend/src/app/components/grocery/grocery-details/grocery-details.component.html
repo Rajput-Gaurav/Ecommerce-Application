@@ -1,28 +1,139 @@
-<div class="container-scroller">
-
-    <div class="card-header text-center">
-        Grocery
+<div class="conatiner" *ngIf="selectedGrocery">
+    <div class="product-img-container">
+        <img class="productImg" mat-card-image style="width: 100%; padding: 20px;" [src]="selectedGrocery.imagePath"
+            alt={{selectedGrocery.productName}}>
     </div>
 
-    <div class="card" style="max-width: auto;">
-        <div class="card-body row g-0">
-            <div class="col-md-5">
-                <img src="assets/images/samples/small/13.jpg" alt="product-name" class="img">
-                <div class="button col-md-12">
-                    <button mat-raised-button [routerLink]="['/cart']" style="width: 40%; background-color: yellow;">ADD
-                        TO CART</button>&nbsp;
-                    <button mat-raised-button style="width: 40%; background-color: #ffa500;">BUY NOW</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <span>Price: {{1000 | currency: 'INR'}}</span><br />
-                    <span>Rating: 4 star</span><br />
-                    <span>Product Description.</span><br />
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
+    <div class="product-description">
+        <h2 style="font-weight: 400;">{{selectedGrocery.productName}}</h2>
+        <div class="rating-container">
+            <span>Star: 5.0</span>
+            <span class="rating">{{selectedGrocery.productRating}}</span>
+            <span class="sold">500 Sold</span>
         </div>
+        <h2 style="font-weight: 400;">{{selectedGrocery.mrp | currency: 'INR'}}</h2>
+        <div>
+            <h4>NUTRITION INFORMATION</h4>
+            1 serving = 5 g (1 fruit)
+            <br>
+            134% Recommended Daily Intake per serving)<br>
+            Sodium-free (1 mg per serving)<br>
+            Fat-free (0.01 g per serving)<br>
+            <h5>LOOK FOR</h5>
+            Small, firm, dark red, cherry-like fruit.
+
+            <h5>TO STORE</h5>
+            Keep uncovered at room temperature for a few days or refrigerate washed fruits in a ventilated container for
+            1 to 2 weeks.
+
+            <h5>TO PREPARE</h5>
+            Fresh fruits may be eaten plain or pressed into juice, jams and preserves.
+        </div>
+
+        <div class="button-group">
+            <button mat-button mat-raised-button color="primary" class="buy-now-button space">
+                BUY NOW
+            </button>
+
+            <button type="submit" mat-button mat-stroked-button color="primary" class="button" (click)="addToCart()">
+                ADD TO CART
+            </button>
+        </div>
+
     </div>
 </div>
+
+<!-- -------------------------Description---------------------- -->
+<div class="description-tabs">
+    <mat-tab-group>
+        <mat-tab label="Description">
+
+            <div class="description">
+                <h4>NUTRITION INFORMATION</h4>
+                1 serving = 5 g (1 fruit)
+                <br>
+                134% Recommended Daily Intake per serving)<br>
+                Sodium-free (1 mg per serving)<br>
+                Fat-free (0.01 g per serving)<br>
+                <h5>LOOK FOR</h5>
+                Small, firm, dark red, cherry-like fruit.
+
+                <h5>TO STORE</h5>
+                Keep uncovered at room temperature for a few days or refrigerate washed fruits in a ventilated container
+                for 1 to 2 weeks.
+
+                <h5>TO PREPARE</h5>
+                Fresh fruits may be eaten plain or pressed into juice, jams and preserves.
+            </div>
+        </mat-tab>
+        <mat-tab label="Manufacturer">
+            <h2 style="font-weight: 400;">Manufactured By Nature</h2>
+            <div class="description"> On her way she met a copy. The copy warned the Little Blind Text, that where it
+                came from it would have been
+                rewritten a thousand times and everything that was left from its origin would be the word "and" and the
+                Little Blind Text should turn around and return to its own, safe country. But nothing the copy said
+                could
+                convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
+                with
+                Longe and Parole and dragged her into their agency, where they abused her for their.
+            </div>
+        </mat-tab>
+        <mat-tab label="Reviews">
+            <h2 style="font-weight: 400;">23 Reviews</h2>
+            <div class="flex-box-transparent message-box" style="padding: 0; margin-top: 5px;">
+                <div class="img-box">
+                    <img src="" width="60px" height="60px" style="border-radius: 50%;" />
+                </div>
+                <div class="detail-box">
+                    <div>
+                        <span style="font-weight: 400; font-size: 14px;"><a></a></span>
+                    </div>
+                    <div>
+                        5 Star
+                    </div>
+                    <div class="message">
+                        <span></span>
+                    </div>
+                    <div class="time" style="margin-top: 5px;">
+                        <span style="color: gray;"></span>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+<!-- -------------------------CART FORM------------------------ -->
+<form [formGroup]="groceryForm" novalidate hidden>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Product Image</label>
+            <input type="text" class="form-control" formControlName="productImage"
+                [ngModel]="selectedGrocery.imagePath">
+        </div>
+        <div class="col-md-6">
+            <label>Product Name</label>
+            <input type="text" class="form-control" placeholder="Enter Product Name"
+                [ngModel]="selectedGrocery.productName" formControlName="productName">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Product Price</label>
+            <input type="number" class="form-control" placeholder="Enter Product Price" [ngModel]="selectedGrocery.mrp"
+                formControlName="productMrp">
+        </div>
+        <div class="col-md-6">
+            <label>Product Quantity</label>
+            <input type="number" class="form-control" placeholder="Enter Product Quantity"
+                [ngModel]="selectedGrocery.quantity" formControlName="productQuantity">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Total Amount</label>
+            <input type="number" class="form-control" placeholder="Enter Total Amount"
+                [ngModel]="selectedGrocery.totalamount" formControlName="totalamount">
+        </div>
+    </div>
+</form>

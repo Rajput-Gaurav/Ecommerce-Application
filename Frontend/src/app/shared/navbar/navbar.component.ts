@@ -9,6 +9,7 @@ import { CommonService } from '../../services/common.service';
 })
 export class NavbarComponent implements OnInit {
 
+  cartCount: number = 0;
   showButton: boolean = true;
   data: any = [];
 
@@ -17,23 +18,38 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     private commonService: CommonService) {
 
-  }
-
-  ngOnInit(): void {
-    this.getUserData();
-
+    // show the login button if user not login:
     if (this.commonService.checkUser()) {
       this.showButton = true;
     } else {
       this.showButton = false;
+    }
+    // Subscribe the Subject for getting length of cart:
+    this.commonService.cartSubject.subscribe(
+      (async (data: any) => {
+        console.log("data: ", data);
+        this.cartCount = data;
+      })
+    );
+  }
+
+  ngOnInit(): void {
+    this.getUserData();
+    this.getCartCount();
+  }
+
+  // GET CART COUNT DATA:
+  // GET LENGTH OF CART ITEM STORE IN LOCALSTORAGE:
+  getCartCount() {
+    if (localStorage.getItem('cartData') != null) {
+      let cartItem = JSON.parse(localStorage.getItem('cartData'));
+      this.cartCount = cartItem.length;
     }
   }
 
   // GET data from localStorage:
   getUserData() {
     this.data = JSON.parse(localStorage.getItem('user'));
-    // console.log("User Data: ", this.data);
-
   }
 
   // remove user from localStorage:

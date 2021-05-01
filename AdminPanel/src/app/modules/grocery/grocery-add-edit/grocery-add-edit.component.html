@@ -45,8 +45,9 @@
                                                 [ngClass]="{ 'is-invalid': submitted && frm.productCategory.errors }">
                                                 <option value="" disabled selected hidden>Select Product Category
                                                 </option>
-                                                <option *ngFor="let category of allProductCategory;">
+                                                <option *ngFor="let category of allProductCategory; let i = index">
                                                     {{category.pCategoryName}}
+                                                    <!-- <td>{{category._id}}</td> -->
                                                 </option>
                                                 <option value="Don’t Know">Don’t Know</option>
                                             </select>
